@@ -1,0 +1,24 @@
+Package: vennFlower
+Title: Plot Venn Flower
+Version: 1.0.0
+Authors@R: 
+    person(given = "Wanjin", 
+           family = "Hu",  
+           email = "wanjin.hu@outlook.com", 
+           role = c("aut", "cre"))
+Description: Create venn flower plot when have many samples/groups/genomes, 
+    show uniq and core feature num. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    renv,
+    testthat (>= 3.0.0)
+Depends: 
+    R (>= 3.5)
+LazyData: true
+Config/testthat/edition: 3
+Imports: 
+    dplyr,
+    plotrix

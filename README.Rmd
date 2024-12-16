@@ -1,18 +1,28 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # vennFlower
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of vennFlower is to create venn flower plot when have many
-samples/groups/genomes, show uniq and core feature num.
+The goal of vennFlower is to create venn flower plot when have many samples/groups/genomes, show uniq and core feature num. 
 
 ## Installation
 
-You can install the development version of vennFlower from
-[GitHub](https://github.com/) with:
+You can install the development version of vennFlower from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
@@ -21,20 +31,11 @@ pak::pak("wanjinhu/vennFlower")
 
 ## Example
 
-This is a basic example which shows you how to run function
-`venn.flower`:
+This is a basic example which shows you how to run function `venn.flower`:
 
-``` r
+```{r example, fig.height=6,fig.width=6}
 library(vennFlower)
 library(dplyr)
-#> 
-#> 载入程辑包：'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 library(plotrix)
 my_col <- c(
   "#6181BD4E", "#F348004E", "#64A10E4E", "#9300264E",
@@ -45,15 +46,8 @@ my_col <- c(
   "#6181BD4E", "#FDA1004E")
 data("gene_absence")
 p <- venn.flower(df = gene_absence, ellipse_col = my_col)
-```
-
-<img src="man/figures/README-example-1.png" width="100%" />
-
-``` r
 # If you want to save the venn flower results, use:
 png("venn_flower.png", width = 10, height = 10, units = "in", res = 300)
 p
 dev.off()
-#> png 
-#>   2
 ```
