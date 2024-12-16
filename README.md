@@ -4,6 +4,10 @@
 # vennFlower
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/wanjinhu/vennFlower/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wanjinhu/vennFlower/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/wanjinhu/vennFlower/graph/badge.svg)](https://app.codecov.io/gh/wanjinhu/vennFlower)
 <!-- badges: end -->
 
 The goal of vennFlower is to create venn flower plot when have many
@@ -28,7 +32,7 @@ This is a basic example which shows you how to run function
 library(vennFlower)
 library(dplyr)
 #> 
-#> 载入程辑包：'dplyr'
+#> Attaching package: 'dplyr'
 #> The following objects are masked from 'package:stats':
 #> 
 #>     filter, lag

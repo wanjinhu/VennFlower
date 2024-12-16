@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>vennFlower</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Index";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> vennFlower
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Index</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">vennFlower</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Index</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<h1 id="vennflower">vennFlower</h1>
+<!-- badges: start -->
+
+<p><a href="https://app.codecov.io/gh/wanjinhu/vennFlower"><img alt="Codecov test
+coverage" src="https://codecov.io/gh/wanjinhu/vennFlower/graph/badge.svg" /></a></p>
+<!-- badges: end -->
+
+<p>The goal of vennFlower is to create venn flower plot when have many
+samples/groups/genomes, show uniq and core feature num.</p>
+<h2 id="installation">Installation</h2>
+<p>You can install the development version of vennFlower from
+<a href="https://github.com/">GitHub</a> with:</p>
+<pre><code class="language-r"># install.packages(&quot;pak&quot;)
+pak::pak(&quot;wanjinhu/vennFlower&quot;)
+</code></pre>
+<h2 id="example">Example</h2>
+<p>This is a basic example which shows you how to run function
+<code>venn.flower</code>:</p>
+<pre><code class="language-r">library(vennFlower)
+library(dplyr)
+#&gt; 
+#&gt; Attaching package: 'dplyr'
+#&gt; The following objects are masked from 'package:stats':
+#&gt; 
+#&gt;     filter, lag
+#&gt; The following objects are masked from 'package:base':
+#&gt; 
+#&gt;     intersect, setdiff, setequal, union
+library(plotrix)
+my_col &lt;- c(
+  &quot;#6181BD4E&quot;, &quot;#F348004E&quot;, &quot;#64A10E4E&quot;, &quot;#9300264E&quot;,
+  &quot;#464E044E&quot;, &quot;#049a0b4E&quot;, &quot;#4E0C664E&quot;, &quot;#D000004E&quot;,
+  &quot;#FF6C004E&quot;, &quot;#FF00FF4E&quot;, &quot;#c7475b4E&quot;, &quot;#00F5FF4E&quot;,
+  &quot;#BDA5004E&quot;, &quot;#A5CFED4E&quot;, &quot;#f0301c4E&quot;, &quot;#2B8BC34E&quot;,
+  &quot;#FDA1004E&quot;, &quot;#54adf54E&quot;, &quot;#CDD7E24E&quot;, &quot;#9295C14E&quot;,
+  &quot;#6181BD4E&quot;, &quot;#FDA1004E&quot;)
+data(&quot;gene_absence&quot;)
+p &lt;- venn.flower(df = gene_absence, ellipse_col = my_col)
+</code></pre>
+<p><img alt="venn flower" src="man/figures/README-example-1.png" /></p>
+<pre><code class="language-r"># If you want to save the venn flower results, use:
+png(&quot;venn_flower.png&quot;, width = 10, height = 10, units = &quot;in&quot;, res = 300)
+p
+dev.off()
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2024-12-16 08:13:13.041451+00:00
+-->
