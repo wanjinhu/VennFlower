@@ -95,14 +95,6 @@ pak::pak(&quot;wanjinhu/vennFlower&quot;)
 <code>venn.flower</code>:</p>
 <pre><code class="language-r">library(vennFlower)
 library(dplyr)
-#&gt; 
-#&gt; Attaching package: 'dplyr'
-#&gt; The following objects are masked from 'package:stats':
-#&gt; 
-#&gt;     filter, lag
-#&gt; The following objects are masked from 'package:base':
-#&gt; 
-#&gt;     intersect, setdiff, setequal, union
 library(plotrix)
 my_col &lt;- c(
   &quot;#6181BD4E&quot;, &quot;#F348004E&quot;, &quot;#64A10E4E&quot;, &quot;#9300264E&quot;,
@@ -115,7 +107,7 @@ data(&quot;gene_absence&quot;)
 p &lt;- venn.flower(df = gene_absence, ellipse_col = my_col)
 </code></pre>
 <p><img alt="venn flower" src="man/figures/README-example-1.png" /></p>
-<pre><code class="language-r"># If you want to save the venn flower results, use:
+<pre><code class="language-r"># If you want to save the venn flower results, please use:
 png(&quot;venn_flower.png&quot;, width = 10, height = 10, units = &quot;in&quot;, res = 300)
 p
 dev.off()
@@ -163,5 +155,5 @@ dev.off()
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2024-12-16 08:13:13.041451+00:00
+Build Date UTC : 2024-12-16 08:53:40.692766+00:00
 -->
